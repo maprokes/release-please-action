@@ -120,28 +120,16 @@ async function manifestInstance (github) {
   const pullRequestTitlePattern = core.getInput('pull-request-title-pattern') || undefined
   const draft = core.getBooleanInput('draft')
   const draftPullRequest = core.getBooleanInput('draft-pull-request')
-  return await Manifest.fromConfig(
+  const manifestOpts = getManifestInput()
+  return await Manifest.fromManifest(
     github,
     github.repository.defaultBranch,
+    manifestOpts.configFile,
+    manifestOpts.manifestFile,
     {
-      bumpMinorPreMajor,
-      bumpPatchForMinorPreMajor,
-      packageName,
-      releaseType,
-      changelogPath,
-      changelogSections,
-      versionFile,
-      extraFiles,
-      includeComponentInTag: monorepoTags,
-      pullRequestTitlePattern,
-      draftPullRequest
-    },
-    {
-      draft,
       signoff,
       fork
-    },
-    path
+    }
   )
 }
 
