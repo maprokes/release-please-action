@@ -4,6 +4,7 @@
 
 Automate releases with Conventional Commit Messages.
 
+
 ## Setting up this action
 
 1. If you haven't already done so, create a `.github/workflows` folder in your
