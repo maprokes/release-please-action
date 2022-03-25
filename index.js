@@ -111,7 +111,7 @@ async function manifestInstance (github) {
   const monorepoTags = core.getBooleanInput('monorepo-tags')
   const packageName = core.getInput('package-name')
   const path = core.getInput('path') || undefined
-  const releaseType = core.getInput('release-type', { required: true })
+  const releaseType = core.getInput('release-type')
   const changelogPath = core.getInput('changelog-path') || undefined
   const changelogTypes = core.getInput('changelog-types') || undefined
   const changelogSections = changelogTypes && JSON.parse(changelogTypes)
